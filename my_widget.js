@@ -7,14 +7,13 @@ angular.module('app.widgets')
       scope: {
         // Isolate scope parameter list
         callBack: '&',
-        bindedByRef: '=',
+        title: '=',
         bindedByValue: '@'
       },
       template: ' '
         + '<div style="border:1px solid black">'
-        + '  <h4>My Wiget</h3>'
-        + '  <p>bindedByRef: {{bindedByRef}}</p>'
-        + '  <p>bindedByValue: {{bindedByValue}}</p>'
+        + '  <h4>My Wiget - wrapped by {{title}}</h3>'
+        + '  <p>{{bindedByValue}}</p>'
         + '</div>',
       link: function postLink(scope, elem, attr) {
         console.log('myWidget link');

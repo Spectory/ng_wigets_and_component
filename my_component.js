@@ -1,17 +1,19 @@
 /*globals angular */
 'use strict';
 angular.module('app.componets')
-  .directive('myComponet', function () {
+  .directive('myComponet', function (ajaxService) {
     return {
       restrict: 'E',
       scope: {
-        obj: '='
+        title: '@'
       },
-      template: "<my-widget binded_by_ref='obj.num' binded_by_value='{{val}}'></my-widget>",
+      template: "<my-widget title='title' binded_by_value='{{val}}'></my-widget>",
       link: function postLink(scope, elem, attr) {
-        console.log('myComponet link');
         // Init some values for the compenet usage
-        scope.val = 'some fixed ' + Math.floor(Math.random() * 10);
+        console.log('myComponet link');
+        ajaxService.getPromise('GET', attr.url).then(function (result_of_ajax) {
+          scope.val = result_of_ajax;
+        });
       },
     };
   });

@@ -1,18 +1,14 @@
 /*globals angular, document, JST, window, _ */
 angular.module('app')
-  .controller('appCtl', ['$scope', '$interval', function ($scope, $interval) {
+  .controller('appCtl', ['$scope', '$rootScope', '$interval', function ($scope, $rootScope, $interval) {
     'use strict';
 
     $scope.init = function () {
       console.log('appCtl init');
-      $scope.arr = [
-        {num: 1},
-        {num: 2},
-      ];
       //trigger a change every second
+      $rootScope.timer = 0;
       $interval(function () {
-        $scope.arr[0].num++;
-        $scope.arr[1].num++;
+        $rootScope.timer++; //how to brodcast event when the widjet is on isolated scppe?
       }, 1000);
     };
 

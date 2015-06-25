@@ -1,19 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.js"></script>
+  <!-- <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.js"></script> -->
+  <script src="angular.js"></script>
   <script src="app.js"></script>
   <script src="app_ctl.js"></script>
   <script src="my_widget.js"></script>
+  <script src="my_service.js"></script>
   <script src="my_component.js"></script>
 </head>
 
 <body ng-app="app">
 <div ng-controller='appCtl' ng-init='init()'>
   <h1>app</h1>
-    <div ng-repeat= 'item in arr'>
-      <my-componet obj='item'></my-componet>
-    </div>
+    <my-componet title='component 1'url='some_url'></my-componet>
+    <my-componet title='component 2'url='other_url'></my-componet>
+    <my-componet title='component 3'url='best_url_ever!!'></my-componet>
   </div>
 </div>
 </body>
