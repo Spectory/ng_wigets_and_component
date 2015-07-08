@@ -2,21 +2,22 @@
 <html>
 <head>
   <!-- <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.js"></script> -->
-  <script src="angular.js"></script>
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="bower_components/famous/dist/famous-global.js"></script>
+  <script src='bower_components/famous-angular/dist/famous-angular.js'></script>
   <script src="app.js"></script>
   <script src="app_ctl.js"></script>
-  <script src="my_widget.js"></script>
-  <script src="my_service.js"></script>
   <script src="my_component.js"></script>
+  <script src="my_widget.js"></script>
+
+  <link href="animated_img/animated_img.css" rel="stylesheet" type="text/css">
+
 </head>
 
 <body ng-app="app">
-<div ng-controller='appCtl' ng-init='init()'>
-  <h1>app</h1>
-    <my-componet title='component 1'url='some_url'></my-componet>
-    <my-componet title='component 2'url='other_url'></my-componet>
-    <my-componet title='component 3'url='best_url_ever!!'></my-componet>
+  <div ng-controller='appCtl' ng-init='init()'> 
+    <my-componet images='images' rotation='rotation'></my-componet>
   </div>
-</div>
+  <label>degrees: <input type="range" ng-model="rotation.degrees"> at home.html {{rotation}}</label>
 </body>
 </html>

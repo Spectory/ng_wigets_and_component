@@ -1,15 +1,21 @@
 /*globals angular, document, JST, window, _ */
 angular.module('app')
-  .controller('appCtl', ['$scope', '$rootScope', '$interval', function ($scope, $rootScope, $interval) {
+  .controller('appCtl', ['$scope', function ($scope) {
     'use strict';
-
+    //scope.rotation is defined by the ng-model on home.html
     $scope.init = function () {
-      console.log('appCtl init');
-      //trigger a change every second
-      $rootScope.timer = 0;
-      $interval(function () {
-        $rootScope.timer++; //how to brodcast event when the widjet is on isolated scppe?
-      }, 1000);
+      $scope.images = [
+        'images/angular.png',
+        'images/famous.png',
+        'images/bower.png',
+        'images/grunt.png',
+        'images/rails.png',
+        'images/js.png',
+        'images/yoman.png',
+        'images/docker.png',
+        'images/AWS.png',
+        'images/heroku.png',
+        'images/new-relic.png',
+      ];
     };
-
   }]);

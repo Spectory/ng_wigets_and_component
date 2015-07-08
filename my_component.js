@@ -1,19 +1,21 @@
 /*globals angular */
+
+/*
+ this component gets a list of images & a rotation objects.
+ it is a wrapper to a group of my-wigdet instances.
+*/
 'use strict';
-angular.module('app.componets')
-  .directive('myComponet', function (ajaxService) {
+angular.module('app')
+  .directive('myComponet', function () {
     return {
       restrict: 'E',
       scope: {
-        title: '@'
+        rotation: '=',
+        images: '='
       },
-      template: "<my-widget title='title' binded_by_value='{{val}}'></my-widget>",
+      template: "<div>at myComponet: {{rotation}}</div> <my-widget ng-repeat='img in images' src='{{img}}' rotation='rotation'></my-widget>",
       link: function postLink(scope, elem, attr) {
-        // Init some values for the compenet usage
-        console.log('myComponet link');
-        ajaxService.getPromise('GET', attr.url).then(function (result_of_ajax) {
-          scope.val = result_of_ajax;
-        });
+        //nothing to do at link at this example
       },
     };
   });
