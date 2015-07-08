@@ -47,7 +47,6 @@ angular.module('app')
         }
         function removeMsg() {
           scope.msg = 'I\'m dizzy...';
-          scope.$apply();
         }
 
         function lockAndShowMsg() {
@@ -77,7 +76,9 @@ angular.module('app')
                 {
                   duration: 0,
                 },
-                unlockAndRemoveMsg
+                function () {
+                  scope.$apply(function () {unlockAndRemoveMsg(); });
+                }
               );
             }
           );
